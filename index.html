@@ -3,9 +3,643 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Sam</title>
+  <style>
+
+    @font-face {
+      font-family: anton;
+      src: url('./fonts/anton-regular.ttf');
+    }@font-face {
+      font-family: groteskThin;
+      src: url('./fonts/grotesk-thin.ttf');
+    }@font-face {
+      font-family: groteskRoman;
+      src: url('./fonts/grotesk-roman.ttf');
+    }@font-face {
+      font-family: groteskLight;
+      src: url('./fonts/grotesk-light.ttf');
+    }
+    body{
+      padding:0;
+      margin:0;
+      overflow-x:hidden;
+      background-color:#151515;
+      color:white;
+    }
+    .video-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh; /* Fullscreen background */
+    overflow: hidden;
+}
+
+.video-container video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures full coverage without empty spaces */
+    transform: translate(-50%, -50%); /* Centers the video */
+    z-index: -1; /* Sends it behind other content */
+}
+
+#navbar{
+  display:flex;
+  color:black;
+  gap:48px;
+  align-items: center;
+  justify-content: center;
+  font-size:18px;
+  margin-top:24px;
+}
+
+#navbar img{
+  height:64px;
+}
+.nav-content {
+    position: relative;
+    z-index: 1; /* Brings text/content above the video */
+    color: white;
+    text-align: center;
+    font-size: 24px;
+    padding: 20px;
+    cursor: pointer;
+    
+}
+
+.nav-content div{
+  padding:4px 12px 4px 12px
+}
+
+.nav-content div:hover{
+  border:1px solid black;
+  border-radius: 32px;
+  padding:4px 12px 4px 12px
+
+}
+
+.container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    gap: 30px; /* Adjust vertical spacing */
+}
+
+/* Wrapping each sentence inside a moving wrapper */
+.sentence-wrapper {
+    display: flex;
+    position: absolute;
+    white-space: nowrap;
+    width: max-content;
+}
+
+/* Styling for text */
+.sentence {
+    font-size: 150px; /* Large font size */
+    font-weight: bold;
+    padding-right: 100px; /* Adjust spacing between repeats */
+    letter-spacing: -3px;
+}
+
+/* Left to right infinite scroll (Starts from full width) */
+@keyframes moveLeftToRight {
+    0% { transform: translateX(-25%); }
+    100% { transform: translateX(25%); }
+}
+
+/* Right to left infinite scroll (Starts from full width) */
+@keyframes moveRightToLeft {
+    0% { transform: translateX(25%); }
+    100% { transform: translateX(-25%); }
+}
+
+/* Apply animations alternately */
+.sentence-wrapper.left {
+    animation: moveLeftToRight 70s linear infinite;
+}
+
+.sentence-wrapper.right {
+    animation: moveRightToLeft 70s linear infinite;
+}
+
+/* Stacking sentence wrappers vertically */
+.sentence-wrapper:nth-child(1) { top: -20%; }
+.sentence-wrapper:nth-child(2) { top: -2%; }
+.sentence-wrapper:nth-child(3) { top: 16%; }
+.sentence-wrapper:nth-child(4) { top: 34%; }
+.sentence-wrapper:nth-child(5) { top: 52%; }
+.sentence-wrapper:nth-child(6) { top: 70%; }
+
+/* Parent container */
+#for-them {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Both sections */
+.for-parent {
+    position: relative;
+    width: 50vw; /* Each section takes half the screen */
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+}
+
+/* Background images */
+#for-her-parent {
+    background-image: url('./public/for-her.jpg');
+}
+
+#for-him-parent {
+    background-image: url('./public/for-him.jpg');
+}
+
+/* Content inside each section */
+#for-them .content {
+    position: absolute;
+    bottom:-10%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center text */
+    text-align: center;
+    color: white;
+    padding:0;
+    margin:0;
+    
+}
+
+
+/* Subtitle text */
+.subtitle {
+    font-size: 24px;
+    margin-bottom: 10px; /* Space between text */
+}
+
+/* Title text */
+.for-them-title {
+    font-size: 64px;
+    margin:0;
+    
+}
+
+button {
+  width: 6em;
+  height: 2em;
+  font-size: 20px;
+  border-radius: 32px;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: 1px solid ; /* Set an initial transparent border */
+  border-color: white;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+  color: white;
+  transition: border-color 0.3s ease; /* Smooth transition */
+  font-family: "groteskLight";
+}
+.content{
+  display:flex;
+  flex-direction: column;
+  padding:0px;
+  margin:0px;
+  align-items: center;
+  justify-content: center;
+  
+  
+}
+
+#solitude-collection{
+   width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background:url('./public/solitude-collection.jpg');
+    position: relative;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    gap:24px;
+
+}
+
+#solitude-collection p{
+  padding:0;
+  margin:0;
+  line-height: 1.3;
+}
+
+.solitude-collection-desc{
+  width:40%;
+  margin:auto;
+  font-size:18px;
+}
+
+#unity-collection p{
+  padding:0;
+  margin:0;
+}
+
+#collection-title{
+  font-size:96px;
+  
+}
+
+#solitude-collection img{
+  height:100%;
+  width:100%;
+  object-fit:cover;
+}
+
+#solitude-collection::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3); /* Adjust transparency (0.5 = 50%) */
+    z-index: 1;
+}
+#solitude-collection > * {
+    position: relative;
+    z-index: 2;
+}
+
+#unity-collection{
+   width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background:url('./public/unite-collection.jpg');
+    position: relative;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align:center;
+    gap:24px
+}
+#unity-collection::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Adjust transparency (0.5 = 50%) */
+    z-index: 1;
+}
+#unity-collection > * {
+    position: relative;
+    z-index: 2;
+}
+
+#unity-collection p{
+  line-height:1.3;
+}
+
+#solitude-collection img{
+  height:100%;
+  width:100%;
+  object-fit:cover;
+}
+#unity-collection img{
+  height:100%;
+  width:100%;
+  object-fit:cover;
+  background:rgba(0,0,0,0.5)
+}
+
+#product-title{
+  text-align: center;
+  font-size:48px;
+  
+}
+#products{
+  display: flex;
+  flex-wrap: wrap; /* Allows items to wrap to the next row */
+  gap:12px;
+  align-items: center;
+  justify-content: center;
+    
+
+}
+
+#products img:hover{
+  cursor: pointer;
+}
+
+#products img{
+  width: 23vw; /* Adjust width */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Removes default inline spacing */
+    margin: auto; /* Centers the image */
+
+}
+
+.product-desc{
+  display:flex;
+  justify-content: space-between;
+
+}
+
+#cat-1, #cat-2, #cat-3, #cat-4, #cat-5 {
+  width: 100vw;
+  height: 25vh;
+  overflow: hidden;
+  
+  background-size: cover; /* Ensures image covers the div */
+  background-position: center; /* Centers the image */
+  background-repeat: no-repeat; /* Prevents tiling */
+}
+
+#cat-1, #cat-2, #cat-3, #cat-4, #cat-5:hover{
+  cursor: pointer;
+}
+
+#cat-1 {
+  background-image: url("./public/cat-1.jpg"); 
+}
+#cat-2 {
+  background-image: url("./public/cat-2.jpg"); 
+}
+#cat-3 {
+  background-image: url("./public/cat-3.jpg"); 
+}
+#cat-4 {
+  background-image: url("./public/cat-4.jpg"); 
+}
+#cat-5 {
+  background-image: url("./public/cat-5.jpg"); 
+}
+
+.cat-desc{
+  font-size:3em;
+  text-align: center;
+}
+
+#category-parent{
+  margin-top:1em;
+}
+#footer{
+  display:flex;
+  justify-content: space-between;
+  
+}
+
+.bottom-text {
+    position: absolute;
+    bottom: -70px; /* Adjust spacing from bottom */
+    left: 50%;
+    transform: translateX(-50%); /* Centers the text */
+    color: white;
+    font-size: 120px;
+    text-align: center;
+    line-height: 1; 
+}
+  </style>
 </head>
 <body>
-  <h1>hello</h1>
+  <div class="video-container">
+    <div style="font-family: groteskLight;" class="nav-content" id="navbar">
+      <div>FOR HIM</div>
+      <div>FOR HER</div>
+      
+        <img src="./public/logo.png">
+      
+      <div>NEW</div>
+      <div>TOPSELLERS</div>
+    </div>
+
+    <div>
+      <p style="font-family: anton;" class="bottom-text">FOREVER <br>FASTER </p>
+    </div>
+    <video autoplay loop muted playsinline src="./public/hero-vid.mp4"></video>
+  </div>
+
+  <!-- moving paragraphs -->
+  <div style="font-family: groteskThin; text-transform: uppercase;" class="container">
+    <div class="sentence-wrapper left">
+      <p class="sentence">Sport meets style with innovation.Sport meets style with innovation.</p>
+      <p class="sentence">Sport meets style with innovation.Sport meets style with innovation.</p>
+    </div>
+    <div class="sentence-wrapper right">
+      <p class="sentence">Empowering athletes and trendsetters.Empowering athletes and trendsetters.</p>
+      <p class="sentence">Empowering athletes and trendsetters.Empowering athletes and trendsetters.</p>
+    </div>
+    <div class="sentence-wrapper left">
+      <p class="sentence">Blending speed, culture, and fashion.Blending speed, culture, and fashion.</p>
+      <p class="sentence">Blending speed, culture, and fashion.Blending speed, culture, and fashion.</p>
+    </div>
+    <div class="sentence-wrapper right">
+      <p class="sentence">Inspiring movement with bold design.Inspiring movement with bold design.</p>
+      <p class="sentence">Inspiring movement with bold design.Inspiring movement with bold design.</p>
+    </div>
+    <div class="sentence-wrapper left">
+      <p class="sentence">Forever Faster is our mindset.Forever Faster is our mindset.</p>
+      <p class="sentence">Forever Faster is our mindset.Forever Faster is our mindset.</p>
+    </div>
+    
+  </div>
+
+  <div id="for-them">
+    <div id="for-her-parent" class="for-parent">
+      <div class="content">
+        <p style="font-family: groteskLight; text-transform: uppercase;font-size:18px;" class="subtitle">Strength, style, and unstoppable energy for the sport.</p>
+        <p style="font-family: anton;" class="for-them-title">FOR HER</p>
+        <button style="font-size:18px;">SHOP</button>
+      </div>
+    </div>
+  
+    <div id="for-him-parent" class="for-parent">
+      <div class="content">
+        <p style="font-family: groteskLight; text-transform: uppercase;font-size:18px;" class="subtitle">Engineered for performance, built for style.</p>
+        <p style="font-family: anton;" class="for-them-title">FOR HIM</p>
+        <button style="font-size:18px;">SHOP</button>
+      </div>
+    </div>
+  </div>
+
+
+  <div id="solitude-collection">
+    <p class="solitude-collection-desc" style="font-family: groteskLight; text-transform: uppercase;">Embrace the power of solitude with Solo Mode—crafted for the ones who train alone, and chase greatness on their own
+    terms.</p>
+    <p style="font-family: anton;" id="collection-title">SOLITUDE <br>COLLECTION</br> </p>
+    <p class="solitude-collection-desc" style="font-family: groteskLight; text-transform: uppercase;">minimal, and performance-driven, this collection is for those who believe that silence builds strength.</p>
+    <button style="font-size:18px;">SHOP</button>
+    
+    
+    
+  </div>
+
+  <div id="unity-collection">
+    <p class="solitude-collection-desc" style="font-family: groteskLight; text-transform: uppercase;">Embrace the power of solitude with Solo Mode—crafted for the ones who train alone, and chase greatness on their own
+      terms.</p>
+    <p style="font-family: anton;" id="collection-title">UNITY <br>COLLECTION</br> </p>
+    <p class="solitude-collection-desc" style="font-family: groteskLight; text-transform: uppercase;">minimal, and performance-driven, this collection is for those who believe that silence builds strength.</p>
+    <button style="font-size:18px;">SHOP</button>
+  </div>
+
+  <div>
+    <h2 style="font-family: anton;" id="product-title">BEST SELLERS</h2>
+    <div style="font-family: groteskLight; text-transform: uppercase;" id="products">
+      <div>
+        <img src="./public/show-1.png">
+        <div class="product-desc">
+          <p>MAGMAX NITRO</p>
+          <p>INR 12,499 </p>
+        </div>
+      </div>
+
+      <div>
+        <img src="./public/shoe-2.png">
+        <div class="product-desc">
+          <p>MAGMAX NITRO</p>
+          <p>INR 12,499 </p>
+        </div>
+      </div>
+
+      <div>
+        <img src="./public/shoe-3.png">
+        <div class="product-desc">
+          <p>MAGMAX NITRO</p>
+          <p>INR 12,499 </p>
+        </div>
+      </div>
+
+      <div>
+        <img src="./public/shoe-4.png">
+        <div class="product-desc">
+          <p>MAGMAX NITRO</p>
+          <p>INR 12,499 </p>
+        </div>
+      </div>
+
+      <div>
+        <img src="./public/shoe-5.png">
+        <div class="product-desc">
+          <p>MAGMAX NITRO</p>
+          <p>INR 12,499 </p>
+        </div>
+      </div>
+
+      <div>
+        <img src="./public/shoe-6.png">
+        <div class="product-desc">
+          <p>MAGMAX NITRO</p>
+          <p>INR 12,499 </p>
+        </div>
+      </div>
+
+      <div>
+        <img src="./public/shoe-7.png">
+        <div class="product-desc">
+          <p>MAGMAX NITRO</p>
+          <p>INR 12,499 </p>
+        </div>
+      </div>
+
+      <div>
+        <img src="./public/shoe-8.png">
+        <div class="product-desc">
+          <p>MAGMAX NITRO</p>
+          <p>INR 12,499 </p>
+        </div>
+      </div>
+
+      <div>
+        <img src="./public/shoe-9.png">
+        <div class="product-desc">
+          <p>MAGMAX NITRO</p>
+          <p>INR 12,499 </p>
+        </div>
+      </div>
+
+      <div>
+        <img src="./public/shoe-10.png">
+        <div class="product-desc">
+          <p>MAGMAX NITRO</p>
+          <p>INR 12,499 </p>
+        </div>
+      </div>
+
+      <div>
+        <img src="./public/shoe-11.png">
+        <div class="product-desc">
+          <p>MAGMAX NITRO</p>
+          <p>INR 12,499 </p>
+        </div>
+      </div>
+
+      <div>
+        <img src="./public/shoe-12.png">
+        <div class="product-desc">
+          <p>MAGMAX NITRO</p>
+          <p>INR 12,499 </p>
+        </div>
+      </div>
+
+      
+    </div>
+  </div>
+
+  <div style="font-family: anton;" id="category-parent">
+    <div id="cat-1">
+      <p class="cat-desc">VELOCITY RUN</p>
+    </div>
+    <div id="cat-2">
+      <p class="cat-desc">URBAN PULSE</p>
+    </div>
+    <div id="cat-3">
+      <p class="cat-desc">SUMMIT TREK</p>
+    </div>
+    <div id="cat-4">
+      <p class="cat-desc">IGNITE TRAINING</p>
+    </div>
+    <div id="cat-5">
+      <p class="cat-desc">APEX WINTER</p>
+    </div>
+  </div>
+
+  <div style="font-family: groteskLight; text-transform: uppercase;" id="footer">
+    <div>
+      <p>INSTAGRAM</p>
+      <p>YOUTUBE</p>
+      <p>EMAIL</p>
+      <p>LOCATION</p>
+    </div>
+
+    <div>
+      <p>FOR MEN</p>
+      <p>FOR WOMEN</p>
+      <p>NEW</p>
+      <p>BESTSELLERS</p>
+    </div>
+
+    <div>
+      <p>velocity run</p>
+      <p>urban pulse</p>
+      <p>summit trek</p>
+      <p>ignite training</p>
+      <p>apex winter</p>
+    </div>
+  </div>
+
+
+  
 </body>
 </html>
