@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product Page</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Helvetica Neue', sans-serif;
+    }
+
+    body {
+      background-color: #000;
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4rem 2rem;
+    }
+
+    .product-container {
+      display: flex;
+      max-width: 1200px;
+      width: 100%;
+      gap: 3rem;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 20px;
+      backdrop-filter: blur(20px);
+      box-shadow: 0 0 40px rgba(255, 255, 255, 0.05);
+      overflow: hidden;
+      transition: all 0.4s ease;
+    }
+
+    .product-image {
+      flex: 1;
+      padding: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .product-image img {
+      width: 100%;
+      max-height: 500px;
+      object-fit: contain;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .product-image img:hover {
+      transform: scale(1.03);
+    }
+
+    .product-details {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 1.5rem;
+      padding: 2rem 3rem;
+    }
+
+    .product-details h1 {
+      font-size: 2.5rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .product-details .price {
+      font-size: 1.5rem;
+      color: #ccc;
+    }
+
+    .product-details .description {
+      font-size: 1rem;
+      color: #aaa;
+      line-height: 1.6;
+      max-width: 90%;
+    }
+
+    .size-options {
+      display: flex;
+      gap: 0.8rem;
+      margin-top: 0.5rem;
+    }
+
+    .size-options button {
+      background-color: #222;
+      color: #fff;
+      border: 1px solid #444;
+      padding: 0.6rem 1rem;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .size-options button:hover {
+      background-color: #fff;
+      color: #000;
+      transform: translateY(-2px);
+    }
+
+    .action-buttons {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .action-buttons button {
+      padding: 0.9rem 2rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .add-to-cart {
+      background-color: #1a1a1a;
+      color: #fff;
+      border: 1px solid #444;
+    }
+
+    .add-to-cart:hover {
+      background-color: #fff;
+      color: #000;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+    }
+
+    .buy-now {
+      background-color: #fff;
+      color: #000;
+    }
+
+    .buy-now:hover {
+      background-color: #e2e2e2;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+    }
+
+    @media (max-width: 768px) {
+      .product-container {
+        flex-direction: column;
+      }
+
+      .product-details {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="product-container">
+    <div class="product-image">
+      <img src="./public/show-1.png" alt="Shoe">
+    </div>
+    <div class="product-details">
+      <h1>MAGMAX NITRO</h1>
+      <div class="price">INR 12,499</div>
+      <p class="description">
+        The perfect blend of agility and comfort. The Magmax Nitro elevates your stride with lightweight cushioning,
+        sleek design, and a responsive feel.
+      </p>
+      <div class="size-options">
+        <button>UK 6</button>
+        <button>UK 7</button>
+        <button>UK 8</button>
+        <button>UK 9</button>
+        <button>UK 10</button>
+      </div>
+      <div class="action-buttons">
+        <button class="add-to-cart" onclick="location.href='/cart.html'">Add to Cart</button>
+        <button class="buy-now" onclick="location.href='/cart.html'">Buy Now</button>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

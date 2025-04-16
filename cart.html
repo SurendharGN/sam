@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cart</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Helvetica Neue', sans-serif;
+    }
+
+    body {
+      background-color: #000;
+      color: #fff;
+      padding: 3rem 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+    }
+
+    .cart-wrapper {
+      width: 100%;
+      max-width: 900px;
+      background: rgba(255, 255, 255, 0.04);
+      padding: 2.5rem;
+      border-radius: 20px;
+      box-shadow: 0 0 40px rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(20px);
+    }
+
+    .cart-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      text-align: center;
+      letter-spacing: 1px;
+    }
+
+    .cart-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      background-color: #111;
+      border-radius: 15px;
+      transition: all 0.3s ease;
+    }
+
+    .cart-item:hover {
+      background-color: #1a1a1a;
+    }
+
+    .cart-item img {
+      width: 100px;
+      height: auto;
+      border-radius: 10px;
+      margin-right: 1.5rem;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+    }
+
+    .cart-info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .cart-info h2 {
+      font-size: 1.4rem;
+      font-weight: 600;
+    }
+
+    .cart-info p {
+      font-size: 0.95rem;
+      color: #aaa;
+    }
+
+    .cart-quantity-price {
+      text-align: right;
+    }
+
+    .cart-quantity-price input {
+      width: 50px;
+      padding: 0.4rem;
+      text-align: center;
+      margin-bottom: 0.5rem;
+      border-radius: 8px;
+      border: none;
+      background-color: #222;
+      color: #fff;
+    }
+
+    .cart-quantity-price p {
+      font-size: 1rem;
+      color: #ccc;
+    }
+
+    .checkout-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 2.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid #333;
+    }
+
+    .checkout-bar p {
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+
+    .checkout-btn {
+      background-color: #fff;
+      color: #000;
+      padding: 0.9rem 2rem;
+      border-radius: 10px;
+      font-size: 1rem;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .checkout-btn:hover {
+      background-color: #e5e5e5;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+    }
+
+    @media (max-width: 768px) {
+      .cart-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+
+      .cart-quantity-price {
+        width: 100%;
+        text-align: left;
+      }
+
+      .checkout-bar {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="cart-wrapper">
+    <div class="cart-title">Your Cart</div>
+
+    <div class="cart-item">
+      <img src="./public/show-1.png" alt="Shoe" />
+      <div class="cart-info">
+        <h2>MAGMAX NITRO</h2>
+        <p>Size: UK 9</p>
+        <p>Lightweight, stylish performance shoe designed for speed and comfort.</p>
+      </div>
+      <div class="cart-quantity-price">
+        <input type="number" value="1" min="1" />
+        <p>INR 12,499</p>
+      </div>
+    </div>
+
+    <div class="checkout-bar">
+      <p>Total: INR 12,499</p>
+      <button class="checkout-btn">Proceed to Checkout</button>
+    </div>
+  </div>
+</body>
+
+</html>
