@@ -412,6 +412,135 @@ button {
     line-height: 1; 
 }
 
+/* updated elements */
+.image-container {
+  display: flex;
+  gap: 20px;               /* Space between the cards */
+  padding: 30px;           /* Space from all sides of the container */
+  
+  margin: 0 auto;          /* Center the container */
+}
+
+.image-block {
+  flex: 1;
+  height: 600px;           /* Increased height */
+  position: relative;
+  background-size: cover;
+  background-position: center;
+
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  padding: 20px;
+  z-index: 2;
+  transition: transform 0.3s ease;
+}
+
+.image-block::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(0,0,0,1), rgba(0,0,0,0));
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.image-block:hover::before {
+  opacity: 1;
+}
+
+/* bento card design */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  gap: 20px;
+  padding: 30px;
+  height: 100vh;
+  background-color: #111;
+}
+
+.bento-card {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  transition: transform 0.4s ease;
+}
+
+.bento-card:hover {
+  transform: scale(1.03);
+}
+
+.bento-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 1;
+}
+
+.bento-card:hover::before {
+  opacity: 1;
+}
+
+.bento-overlay {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  z-index: 2;
+  color: white;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.bento-card:hover .bento-overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.bento-overlay h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+}
+
+/* Layout-specific grid spans for true bento styling */
+.card-1 {
+  grid-column: span 2;
+  grid-row: span 3;
+}
+
+.card-2 {
+  grid-column: span 2;
+  grid-row: span 3;
+}
+
+.card-3 {
+  grid-column: span 2;
+  grid-row: span 6;
+}
+
+.card-4 {
+  grid-column: span 4;
+  grid-row: span 3;
+}
+
+
+
   </style>
 </head>
 <body>
@@ -452,6 +581,28 @@ button {
     </div>
   </div>
 
+  <div class="image-container">
+    <div class="image-block" style="background-image: url('public/collab-1.png');">
+      <div class="overlay">
+        <h2>RCB X PUMA</h2>
+        <p>The boldness of RCB</p>
+      </div>
+    </div>
+    <div class="image-block" style="background-image: url('public/collab-2.png');">
+      <div class="overlay">
+        <h2>F1 X PUMA</h2>
+        <p>As fast as the drives</p>
+      </div>
+    </div>
+    <div class="image-block" style="background-image: url('public/collab-3.png');">
+      <div class="overlay">
+        <h2>DC X PUMA</h2>
+        <p>Capitals of fashion</p>
+      </div>
+    </div>
+  </div>
+
+
 
   <div id="solitude-collection">
     <p class="solitude-collection-desc" style="font-family: groteskLight; text-transform: uppercase;">Embrace the power of solitude with Solo Mode—crafted for the ones who train alone, and chase greatness on their own
@@ -470,6 +621,31 @@ button {
     <p style="font-family: anton;" id="collection-title">UNITY <br>COLLECTION</br> </p>
     <p class="solitude-collection-desc" style="font-family: groteskLight; text-transform: uppercase;">minimal, and performance-driven, this collection is for those who believe that silence builds strength.</p>
     <button style="font-size:18px;">SHOP</button>
+  </div>
+
+  <!-- bento -->
+  <div class="bento-grid">
+    <div class="bento-card card-1" style="background-image: url('public/bento-1.png');">
+      <div class="bento-overlay">
+        <h2>COLLAB</h2>
+      </div>
+    </div>
+    <div class="bento-card card-2" style="background-image: url('public/bento-2.png');">
+      <div class="bento-overlay">
+        <h2>VINTAGE</h2>
+      </div>
+    </div>
+    <div class="bento-card card-3" style="background-image: url('public/bento-3.png');">
+      <div class="bento-overlay">
+        <h2>SPORTY</h2>
+      </div>
+    </div>
+    <div class="bento-card card-4" style="background-image: url('public/bento-5.jpg');">
+      <div class="bento-overlay">
+        <h2>MARATHON</h2>
+      </div>
+    </div>
+    
   </div>
 
   <div>
